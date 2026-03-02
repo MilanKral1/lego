@@ -8,6 +8,8 @@ body {
     font-family: 'Google Sans Flex', sans-serif;
 }
 
+
+
 /* ── ANNOUNCEMENT BAR ── */
 .announcement-bar {
     background-color: white;
@@ -147,7 +149,7 @@ nav div .a-text:hover::after {
     transform: scaleX(1);
 }
 
-nav div a > img {
+nav div .a-img > img {
     width: 60px;
     position: absolute;
     left: 50%;
@@ -157,7 +159,7 @@ nav div a > img {
 
 /* ── OUTSIDE / HERO ── */
 .outside {
-    width: 100vw;
+    width: 100%;
     height: 200px;
     background-color: #000000;
     position: relative;
@@ -311,3 +313,78 @@ nav div a > img {
     border-right: 1px solid black !important;
     border-bottom: 1px solid black !important;
 }
+
+.tablet-logo-container {
+        display: none;
+    }
+
+    .a-img2 {
+        display: none;
+    }
+
+
+
+
+@media (max-width: 768px) {
+    .announcement-wrapper {
+        width: 200px;
+        font-size: 14px;
+    }
+
+    nav div::after{
+        display: none;
+    }
+
+
+
+    .hero h2{
+        font-size: 18px;
+    }
+
+    .hero button {
+        width: 120px;
+        padding: 8px 24px 8px 10px;
+    }
+
+     .outside button {
+        width: 120px;
+        padding: 8px 24px 8px 10px;
+    }
+
+    .tablet-logo-container{
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 17.5px;
+        right: 50%;
+        transform: translateX(50%);
+        z-index: 10;
+    }
+
+    .a-img img{
+        display: none;
+    }
+
+    .a-img2, .a-img2 img{
+        width: 50px;
+        height: 50px;
+    }
+
+    .a-img2{
+        display: inline-block;
+    }
+    
+
+    nav .a-container{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        position: absolute;
+        left: -125px;
+    }
+    nav{
+        min-width: 0;
+    }
+}
+
