@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Milan Král, Karel Křiva, Filip Henri Agba">
+    <meta name="keywords" content="lego, stavebnice">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
+    <title>LEGO Production s. r. o.</title>
+    <link rel="shortcut icon" href="LEGO_logo.svg.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+  <button class="arrow-btn" onclick="changeMessage(-1)">&#8249;</button>
+  <div class="announcement-wrapper">
+    <p class="announcement-content" id="message">
+      🖐️ Free delivery on orders over 1400 Kč! <a href="#">More info</a>
+    </p>
+  </div>
+  <button class="arrow-btn" onclick="changeMessage(1)">&#8250;</button>
+</div>
+    <!-- Navigation -->
+    <nav>
+        <div>
+            <a href="#" class="a-text">DOMŮ</a>
+            <a href="#" class="a-text">PRODUKTY</a>
+            <a href="#" class="a-img"><img src="LEGO_logo.svg.png" alt="logo"></a>
+            <a href="#" class="a-text">O NÁS</a>
+            <a href="#" class="a-text">KONTAKT</a>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <div class="outside">
+    <div class="hero">
+        <h2>Svět, kde nápady ožívají</h2>
+        <div class="hero-buttons">
+            <button>Do obchodu</button>
+            <button class="btn2">Další info</button>
+        </div>
+    </div>
+</div>
+
+    
+    <script>
+    //JavaScript for Announcement Bar
+        const messages = [
+  '🖐️ Free delivery on orders over 1400 Kč! <a href="#">More info</a>',
+  '🎉 New LEGO Pokémon sets available now! <a href="#">Shop</a>',
+  '🔥 Limited time offer – 20% off selected sets! <a href="#">More info</a>',
+];
+
+let current = 0;
+let isAnimating = false;
+
+function changeMessage(direction) {
+  if (isAnimating) return;
+  isAnimating = true;
+
+  const el = document.getElementById('message');
+  const outClass = direction === 1 ? 'slide-out-left' : 'slide-out-right';
+  const inClass  = direction === 1 ? 'slide-in-right' : 'slide-in-left';
+
+  // Slide current message out
+  el.classList.add(outClass);
+
+  setTimeout(() => {
+    // Swap content and reset position
+    current = (current + direction + messages.length) % messages.length;
+    el.innerHTML = messages[current];
+    el.classList.remove(outClass);
+
+    // Force reflow so animation restarts cleanly
+    void el.offsetWidth;
+
+    // Slide new message in
+    el.classList.add(inClass);
+
+    setTimeout(() => {
+      el.classList.remove(inClass);
+      isAnimating = false;
+    }, 350);
+
+  }, 350);
+}
+
+    </script>
+
+    
+</body>
+
+</html>
