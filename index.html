@@ -24,7 +24,7 @@
   <button class="arrow-btn" onclick="changeMessage(-1)">&#8249;</button>
   <div class="announcement-wrapper">
     <p class="announcement-content" id="message">
-      🖐️ Free delivery on orders over 1400 Kč! <a href="#">More info</a>
+      🖐️ My jsme LEGO <a href="#">More info</a>
     </p>
   </div>
   <button class="arrow-btn" onclick="changeMessage(1)">&#8250;</button>
@@ -62,9 +62,9 @@
     <script>
     //JavaScript for Announcement Bar
         const messages = [
-  '🖐️ Free delivery on orders over 1400 Kč! <a href="#">More info</a>',
-  '🎉 New LEGO Pokémon sets available now! <a href="#">Shop</a>',
-  '🔥 Limited time offer – 20% off selected sets! <a href="#">More info</a>',
+  '🖐️ My jsme LEGO <a href="#">More info</a>',
+  '🎉 Noví LEGO Pokémoni <a href="#">Shop</a>',
+  '🔥 Přidej se k nám <a href="#">More info</a>',
 ];
 
 let current = 0;
@@ -100,6 +100,13 @@ function changeMessage(direction) {
 
   }, 350);
 }
+  // JavaScript for Hamburger Menu
+  const hamburger = document.getElementById("sidebar");
+  const navLinks = document.querySelector(".a-container");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
 
     </script>
 
