@@ -177,7 +177,7 @@ nav div a {
   position: relative;
 }
 
-nav div .a-text::after {
+.a-text::after {
   content: "";
   position: absolute;
   left: 0;
@@ -374,6 +374,13 @@ nav div .a-img > img {
   cursor: pointer;
 }
 
+.house-icon,
+.brick-icon,
+.people-icon,
+.phone-icon {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .announcement-wrapper {
     width: 200px;
@@ -432,28 +439,31 @@ nav div .a-img > img {
     position: absolute;
     left: -100%;
     top: 80px;
+    padding-top: 20px;
     z-index: 50;
     background-color: rgb(239, 239, 239);
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     transition: left 0.3s ease;
   }
+
+
 
   nav .a-container.active {
     left: 0;
   }
 
   nav .a-container a {
-    width: 100%;
+    width: 85vw;
     margin: 25px 0;
     font-size: 1em;
-    width: auto;
-    left: 75px;
+    left: 5%;
+    left: min(500px, 7.5%);
   }
 
-  nav .a-container a::after {
-    display: none;
-  }
+nav .a-container .a-text::after {
+  display: block;
+}
 
   nav {
     min-width: 0;
@@ -466,6 +476,7 @@ nav div .a-img > img {
     align-items: center;
     position: relative;
     left: 5%;
+    left: min(500px, 7.5%);
     height: 20px;
     top: 50%;
     transform: translate(-5%, -50%);
@@ -500,4 +511,48 @@ nav div .a-img > img {
     bottom: -2px;
     transition: 0.3s ease;
   }
+
+  .a-text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    height: 40px;
+     transition: 0.3s ease;
+     padding: 10px 0;
+  }
+
+  .a-text:hover{
+    width: 80vw;
+    left: 10vw;
+     transition: 0.3s ease;
+  }
+  .house-icon,
+  .brick-icon,
+  .people-icon,
+  .phone-icon {
+    display: inline-block !important;
+    width: 30px;
+  }
+
+  .a-text::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: auto;
+    bottom: -35px;
+    width: 85vw;
+    height: 1px;
+    background-color: rgb(148, 148, 148);
+
+    transform: none;
+    transition: 0.3s ease;
+    z-index: 100;
+  }
+
+  .a-text:hover::after {
+    left: -2.5vw;
+  }
+
 }
